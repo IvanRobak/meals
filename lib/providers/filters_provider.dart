@@ -4,7 +4,7 @@ enum Filter {
   glutenFree,
   lactoseFree,
   vegan,
-  vegatarian,
+  vegetarian,
 }
 
 class FilterNotifier extends StateNotifier<Map<Filter, bool>> {
@@ -13,8 +13,11 @@ class FilterNotifier extends StateNotifier<Map<Filter, bool>> {
           Filter.glutenFree: false,
           Filter.lactoseFree: false,
           Filter.vegan: false,
-          Filter.vegatarian: false,
+          Filter.vegetarian: false,
         });
+  void setFilters(Map<Filter, bool> chosenFilters) {
+    state = chosenFilters;
+  }
 
   void setFilter(Filter filter, bool isActive) {
     state = {...state, filter: isActive};
